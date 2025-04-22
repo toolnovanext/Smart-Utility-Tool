@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Utility Tool</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background-color 0.4s, color 0.4s;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .dark-mode {
+      background-color: #1f1f1f;
+      color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+    }
+
+    .welcome {
+      background: linear-gradient(135deg, #8e44ad, #3498db);
+      color: #fff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .toggle-btn {
+      margin: 20px auto;
+      display: block;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      background-color: #555;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background-color: #777;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    .tool-list {
+      max-height: 400px;
+      overflow-y: auto;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .tool-item {
+      background-color: #eaeaea;
+      margin: 10px 0;
+      padding: 15px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .tool-item:hover {
+      transform: scale(1.02);
+      background-color: #dcdcdc;
+    }
+
+    .dark-mode .tool-item {
+      background-color: #333;
+    }
+
+    .dark-mode .tool-item:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Smart Utility Tool</h1>
+
+    <div class="welcome">
+      <p>Welcome to Smart Utility Tool, proudly created by the Accessible Resource team to make your tasks easier, faster, and smarter!</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+
+    <input type="text" id="searchInput" class="search-box" placeholder="Search tools..." onkeyup="filterTools()" />
+
+    <ul class="tool-list" id="toolList">
+      <li class="tool-item" onclick="openLink('https://accessibleresource.github.io/Simple-calculator/')">Simple Calculator</li>
+      <li class="tool-item" onclick="openLink('https://accessibleresource.github.io/Age-Calculator-/')">Age Calculator</li>
+      <li class="tool-item" onclick="openLink('https://accessibleresource.github.io/LoveMeter/')">LoveMeter</li>
+      <li class="tool-item" onclick="openLink('https://accessibleresource.github.io/Password-generator/')">Strong Password Generator</li>
+      <li class="tool-item" onclick="openLink('https://accessibleresource.github.io/Time-converter/')">Global Time Converter</li>
+      <li class="tool-item" onclick="openLink('https://accessibleresource.github.io/Currency-converter/')">Currency Converter</li>
+      <li class="tool-item" onclick="openLink('https://accessibleresource.github.io/Baby-name-generator/')">Baby Name Generator</li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function filterTools() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const items = document.querySelectorAll('.tool-item');
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(input) ? '' : 'none';
+      });
+    }
+
+    function openLink(url) {
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
