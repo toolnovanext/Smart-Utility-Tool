@@ -13,12 +13,6 @@
             --surface-color-dark: #121433;
             --text-color-dark: #e0e0e0;
             --border-color-dark: rgba(0, 170, 255, 0.2);
-
-            --bg-color-light: #f0f2f5;
-            --surface-color-light: #ffffff;
-            --text-color-light: #1c1e21;
-            --border-color-light: rgba(0, 0, 0, 0.1);
-
             --font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             --transition-speed: 0.3s;
         }
@@ -37,15 +31,6 @@
             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
         }
 
-        /* --- Dark/Light Mode Theme --- */
-        body.light-mode {
-            --bg-color-dark: var(--bg-color-light);
-            --surface-color-dark: var(--surface-color-light);
-            --text-color-dark: var(--text-color-light);
-            --border-color-dark: var(--border-color-light);
-            background-image: none;
-        }
-        
         /* --- Loader --- */
         #loader {
             position: fixed;
@@ -114,12 +99,6 @@
             margin-bottom: 1.5rem;
         }
 
-        .developer-credit {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-bottom: 2rem;
-        }
-
         .description {
             max-width: 700px;
             margin: 2rem auto;
@@ -127,145 +106,6 @@
             opacity: 0.9;
         }
 
-        /* --- Official Channel Buttons --- */
-        .official-channels {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .glow-button {
-            padding: 12px 24px;
-            border: none;
-            outline: none;
-            color: #fff;
-            background: #111;
-            cursor: pointer;
-            position: relative;
-            z-index: 0;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            text-decoration: none;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .glow-button:before {
-            content: '';
-            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-            position: absolute;
-            top: -2px;
-            left:-2px;
-            background-size: 400%;
-            z-index: -1;
-            filter: blur(5px);
-            width: calc(100% + 4px);
-            height: calc(100% + 4px);
-            animation: glowing 20s linear infinite;
-            opacity: 0;
-            transition: opacity .3s ease-in-out;
-            border-radius: 10px;
-        }
-
-        .glow-button:hover:before {
-            opacity: 1;
-        }
-
-        .glow-button:after {
-            z-index: -1;
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: var(--surface-color-dark);
-            left: 0;
-            top: 0;
-            border-radius: 10px;
-            transition: background-color var(--transition-speed) ease;
-        }
-
-        @keyframes glowing {
-            0% { background-position: 0 0; }
-            50% { background-position: 400% 0; }
-            100% { background-position: 0 0; }
-        }
-
-        /* --- Theme Toggle Switch --- */
-        .theme-switch-wrapper {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-        }
-        .theme-switch {
-            display: inline-block;
-            height: 34px;
-            position: relative;
-            width: 60px;
-        }
-        .theme-switch input {
-            display:none;
-        }
-        .slider {
-            background-color: var(--surface-color-dark);
-            border: 1px solid var(--border-color-dark);
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: .4s;
-            border-radius: 34px;
-        }
-        .slider:before {
-            background-color: #fff;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="%23121433" d="M9.305 1.667a6.39 6.39 0 0 0-4.38 12.034 6.39 6.39 0 0 0 12.034-4.38 6.39 6.39 0 0 0-4.38-12.034 6.39 6.39 0 0 0-3.274 4.38 6.39 6.39 0 0 0-4.38-4.38Z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: center;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 3px;
-            position: absolute;
-            transition: .4s;
-            border-radius: 50%;
-        }
-        input:checked + .slider {
-            background-color: var(--surface-color-dark);
-        }
-        input:checked + .slider:before {
-            transform: translateX(26px);
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="%23FFD700" d="M10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0-2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1Zm-5 5a1 1 0 0 1-1-1H3a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm10 0a1 1 0 0 1-1-1H13a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM9 15a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Zm-3.536-2.464a1 1 0 0 1 1.414 0l.707.707a1 1 0 0 1-1.414 1.414l-.707-.707a1 1 0 0 1 0-1.414Zm8.486 0a1 1 0 0 1 0 1.414l-.707.707a1 1 0 0 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0ZM4.929 4.929a1 1 0 0 1 1.414 0l.707.707a1 1 0 1 1-1.414 1.414L4.93 6.343a1 1 0 0 1 0-1.414Zm8.486 0a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0Z"/></svg>');
-        }
-        
-        /* --- Search Input --- */
-        .search-container {
-            margin: 2.5rem 0;
-        }
-        
-        #searchInput {
-            width: 80%;
-            max-width: 500px;
-            padding: 15px 25px;
-            border-radius: 50px;
-            border: 1px solid var(--border-color-dark);
-            background-color: var(--surface-color-dark);
-            color: var(--text-color-dark);
-            font-size: 1rem;
-            outline: none;
-            transition: all var(--transition-speed) ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        #searchInput:focus {
-            border-color: var(--primary-glow);
-            box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
-        }
-        
         /* --- Tool List --- */
         #toolList {
             display: grid;
@@ -274,7 +114,7 @@
             margin-top: 2rem;
             text-align: left;
         }
-        
+
         .tool-card {
             background-color: var(--surface-color-dark);
             border-radius: 15px;
@@ -285,19 +125,19 @@
             flex-direction: column;
             justify-content: space-between;
         }
-        
+
         .tool-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             border-color: var(--primary-glow);
         }
-        
+
         .tool-card h3 {
             margin: 0 0 0.5rem 0;
             font-size: 1.2rem;
             color: var(--text-color-dark);
         }
-        
+
         .tool-card p {
             margin: 0 0 1.5rem 0;
             font-size: 0.95rem;
@@ -339,25 +179,14 @@
             h2 {
                 font-size: 1.1rem;
             }
-            .official-channels {
-                flex-direction: column;
-                align-items: center;
-            }
             #toolList {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         @media (max-width: 480px) {
             h1 {
                 font-size: 2rem;
-            }
-            .theme-switch-wrapper {
-                top: 10px;
-                right: 10px;
-            }
-            #searchInput {
-                width: 90%;
             }
         }
 
@@ -365,122 +194,108 @@
 </head>
 <body>
 
+    <header>
+        <!-- Empty header -->
+    </header>
+
     <div id="loader">
         <div class="spinner"></div>
     </div>
 
     <div class="app-container">
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <div class="slider round"></div>
-            </label>
-        </div>
-
         <header>
             <h1>Smart Utility Tool</h1>
             <h2>A Modern Hub of Useful Tools, All in One Place.</h2>
         </header>
 
-        <p class="developer-credit">Developed by S M Ripon | Powered by Accessible Resource</p>
-
-        <div class="official-channels">
-            <a href="https://youtube.com/@accessibleresource?si=ZSfYANNI4yFSONe1" target="_blank" class="glow-button">YouTube Channel</a>
-            <a href="https://t.me/shopnotamal" target="_blank" class="glow-button">Telegram Channel</a>
-        </div>
-
         <p class="description">
             Smart Utility Tool is a dynamic and evolving collection of practical and intelligent tools designed to simplify your digital journey. We regularly add unique, powerful utilities here — carefully crafted for productivity, accessibility, and efficiency.
         </p>
-
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search for a tool by title...">
-        </div>
 
         <main id="toolList">
             <!-- Tool cards will be dynamically inserted here -->
         </main>
     </div>
 
+    <footer>
+        <!-- Empty footer -->
+    </footer>
+
+    <script src="https://toolnovanext.github.io/scripts/navigation.js"></script>
+    <script src="https://toolnovanext.github.io/scripts/notification.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tools = [
-
                 {
                     title: "Slide show creator",
-                    url: "https://accessibleresource.github.io/slide-show/",
+                    url: "https://toolnovanext.github.io/slide-show/",
                     description: "Create videos of slide show with images and background music."
                 },
                 {
                     title: "A R weather map",
-                    url: "https://accessibleresource.github.io/weather-map/",
+                    url: "https://toolnovanext.github.io/weather-map/",
                     description: "Get real-time weather updates and forecasts on an interactive map."
                 },
                 {
                     title: "AR video to audio",
-                    url: "https://accessibleresource.github.io/video-to-audio/",
+                    url: "https://toolnovanext.github.io/video-to-audio/",
                     description: "Easily convert your video files into high-quality audio formats online."
                 },
                 {
                     title: "AR YouTube Thumbnail Downloader",
-                    url: "https://accessibleresource.github.io/Thumbnail-download/",
+                    url: "https://toolnovanext.github.io/Thumbnail-download/",
                     description: "Download high-resolution thumbnails from any YouTube video instantly."
                 },
                 {
                     title: "AR Code Studio",
-                    url: "https://accessibleresource.github.io/A-R-Code-studio/",
+                    url: "https://toolnovanext.github.io/A-R-Code-studio/",
                     description: "A lightweight, in-browser code editor for quick coding and experimentation."
                 },
                 {
                     title: "AR Typing Speed Test",
-                    url: "https://accessibleresource.github.io/typing-speed-tester/",
+                    url: "https://toolnovanext.github.io/typing-speed-tester/",
                     description: "Measure your typing speed, accuracy, and words-per-minute with this simple test."
                 },
                 {
                     title: "AR Simple Calculator",
-                    url: "https://accessibleresource.github.io/Simple-calculator/",
+                    url: "https://toolnovanext.github.io/Simple-calculator/",
                     description: "A clean and easy-to-use calculator for all your basic arithmetic needs."
                 },
                 {
                     title: "AR Age Calculator",
-                    url: "https://accessibleresource.github.io/Age-Calculator-/",
+                    url: "https://toolnovanext.github.io/Age-Calculator-/",
                     description: "Calculate your precise age in years, months, and days from your date of birth."
                 },
                 {
                     title: "AR Global Time Converter",
-                    url: "https://accessibleresource.github.io/Time-converter/",
+                    url: "https://toolnovanext.github.io/Time-converter/",
                     description: "Convert times between different time zones across the world effortlessly."
                 },
                 {
                     title: "A R password generator",
-                    url: "https://accessibleresource.github.io/Password-generator/",
+                    url: "https://toolnovanext.github.io/Password-generator/",
                     description: "Create strong, secure, and random passwords to protect your online accounts."
                 },
                 {
                     title: "AR Currency Converter",
-                    url: "https://accessibleresource.github.io/Currency-converter/",
+                    url: "https://toolnovanext.github.io/Currency-converter/",
                     description: "Get the latest exchange rates and convert between various world currencies."
                 },
                 {
                     title: "ar speaker cleaner",
-                    url: "https://accessibleresource.github.io/speaker-cleaner/",
+                    url: "https://toolnovanext.github.io/speaker-cleaner/",
                     description: "An effective tool to clean water and dust from your device's speaker."
                 }
             ];
 
             const toolListContainer = document.getElementById('toolList');
-            const searchInput = document.getElementById('searchInput');
             const loader = document.getElementById('loader');
             const appContainer = document.querySelector('.app-container');
 
             // --- Generate Tool Cards ---
-            function displayTools(filteredTools) {
+            function displayTools(toolData) {
                 toolListContainer.innerHTML = '';
-                if (filteredTools.length === 0) {
-                    toolListContainer.innerHTML = '<p>No tools found matching your search.</p>';
-                    return;
-                }
-                filteredTools.forEach(tool => {
+                toolData.forEach(tool => {
                     const toolCard = document.createElement('div');
                     toolCard.className = 'tool-card';
                     toolCard.innerHTML = `
@@ -496,36 +311,6 @@
 
             // --- Initial Display ---
             displayTools(tools);
-
-            // --- Search Functionality ---
-            searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const filteredTools = tools.filter(tool => 
-                    tool.title.toLowerCase().includes(searchTerm)
-                );
-                displayTools(filteredTools);
-            });
-
-            // --- Theme Toggler ---
-            const toggleSwitch = document.getElementById('checkbox');
-            const currentTheme = localStorage.getItem('theme');
-
-            if (currentTheme) {
-                document.body.classList.add(currentTheme);
-                if (currentTheme === 'light-mode') {
-                    toggleSwitch.checked = true;
-                }
-            }
-
-            toggleSwitch.addEventListener('change', (e) => {
-                if (e.target.checked) {
-                    document.body.classList.add('light-mode');
-                    localStorage.setItem('theme', 'light-mode');
-                } else {
-                    document.body.classList.remove('light-mode');
-                    localStorage.setItem('theme', 'dark-mode');
-                }
-            });
 
             // --- Hide Loader on Window Load ---
             window.addEventListener('load', () => {
